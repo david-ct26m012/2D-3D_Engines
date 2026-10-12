@@ -12946,7 +12946,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1899462108639706933, guid: 8dcccb95f6a5e8f4e9395ea042fe51b3, type: 3}
       propertyPath: m_Mass
-      value: 75
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 1899462108639706933, guid: 8dcccb95f6a5e8f4e9395ea042fe51b3, type: 3}
       propertyPath: m_LinearDamping
@@ -13237,7 +13237,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &305407941
 Transform:
   m_ObjectHideFlags: 0
@@ -27931,7 +27931,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1899462108639706933, guid: 8dcccb95f6a5e8f4e9395ea042fe51b3, type: 3}
       propertyPath: m_Mass
-      value: 75
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 1899462108639706933, guid: 8dcccb95f6a5e8f4e9395ea042fe51b3, type: 3}
       propertyPath: m_LinearDamping
