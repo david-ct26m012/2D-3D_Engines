@@ -3,7 +3,7 @@
 ## Camera Movement
 - Attached the camera to the spaceship prefab and positioned it for a third-person view.
 - Locked and hid the cursor at startup. Pressing Escape unlocks and shows it again.
-- Added Logging to keep track of Vector
+- Kept Logic to display input vector on the bottom of the screen.
 
 **Implemented by:** Eric Drößiger
 
@@ -16,7 +16,8 @@
 
 ## Spaceship Physics and Collisions
 - Setup Player's Spaceship Rigidbody and Collision.
-- Custom collision behavior for other ships: TBD.
+- Added Rigidbody to Spaceship Prefabs and buoys, defined mass and dampening.
+- Added Collision where necessary.
 
 **Implemented by:** Eric Drößiger
 
