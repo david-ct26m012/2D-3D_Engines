@@ -22,6 +22,17 @@
 **Implemented by:** Eric Drößiger
 
 
+## Projectile & Shooting Mechanics
+- Created projectile prefab using URP/Bloom for an emission-based glow effect.
+- Created `Cannon` script to instantiate projectiles at the spaceship's muzzle/spawn point upon pressing left-click using the New Input System (`PlayerInput` events).
+- Added automatic projectile destruction after a configurable timeout using a C# Coroutine.
 
+**Implemented by:** David Scheucher
+
+## Logging & Event Architecture
+- Created a `MessageLogger` class attached to a scene manager object.
+- Implemented C# Events (`Action<string>`) in the `Bullet` script to notify the `MessageLogger` upon projectile impacts and time-based destructions.
+
+**Implemented by:** David Scheucher
 
 
