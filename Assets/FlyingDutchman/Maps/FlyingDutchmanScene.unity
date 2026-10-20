@@ -35658,7 +35658,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
   speed: 40
   mouseSensitivity: 0.05
-  rollSpeed: 1
+  rollSpeed: 3
 --- !u!54 &735258028
 Rigidbody:
   m_ObjectHideFlags: 0
