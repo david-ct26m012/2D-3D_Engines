@@ -69,8 +69,7 @@ public class PlayerController : MonoBehaviour
         Rigidbody.MoveRotation(Rigidbody.rotation * turn);
 
 
-        Quaternion turnRoll = Quaternion.Euler(0f, 0f, -rollInput * rollSpeed);
-        Rigidbody.MoveRotation(Rigidbody.rotation * turnRoll);
+        Rigidbody.AddRelativeTorque(Vector3.forward * -rollInput * rollSpeed, ForceMode.Acceleration);
     }
 
 
