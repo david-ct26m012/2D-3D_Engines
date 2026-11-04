@@ -15,9 +15,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float mouseSensitivity = 0.1f;
 
     private float rollInput;
-    [SerializeField] private float rollSpeed = 0.5f;
+    [SerializeField] private float rollSpeed = 2f;
 
-
+    private float ignoreLookUntil;
+    private const float LookInputIgnoreDuration = 0.1f;
     
 
 
@@ -29,6 +30,7 @@ public class PlayerController : MonoBehaviour
         Rigidbody = GetComponent<Rigidbody>();
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+        IgnoreLookInputBriefly();
     }
 
 
@@ -46,13 +48,33 @@ public class PlayerController : MonoBehaviour
 
     public void OnLook(InputValue value)
     {
+        if (Time.unscaledTime < ignoreLookUntil)
+        {
+            return;
+        }
+
         pendingLook += value.Get<Vector2>();
     }
 
     public void OnEscape(InputValue value)
     {
+        pendingLook = Vector2.zero;
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+    }
+
+    private void OnApplicationFocus(bool hasFocus)
+    {
+        pendingLook = Vector2.zero;
+        if (hasFocus)
+        {
+            IgnoreLookInputBriefly();
+        }
+    }
+
+    private void IgnoreLookInputBriefly()
+    {
+        ignoreLookUntil = Time.unscaledTime + LookInputIgnoreDuration;
     }
 
 
