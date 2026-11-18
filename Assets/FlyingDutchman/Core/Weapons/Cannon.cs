@@ -28,6 +28,8 @@ public class Cannon : MonoBehaviour
             return;
         }
 
+        if (!Magazine.Instance.TryShoot()) return;
+
         Vector3 spawnPos = spawnPoint != null ? spawnPoint.position : transform.position;
         Quaternion spawnRot = spawnPoint != null ? spawnPoint.rotation : transform.rotation;
 

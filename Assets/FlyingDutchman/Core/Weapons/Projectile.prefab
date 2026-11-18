@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 5630966495024729034}
   - component: {fileID: -394762776160704565}
   - component: {fileID: 8352019424885339692}
+  - component: {fileID: -3459998616082635358}
   m_Layer: 0
   m_Name: Projectile
   m_TagString: Untagged
@@ -155,3 +156,15 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &-3459998616082635358
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3581857926437533940}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20418fcd2f12a7b4799b3c33628c4d67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ProjectileAmmo
