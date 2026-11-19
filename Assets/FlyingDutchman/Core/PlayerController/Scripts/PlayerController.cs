@@ -19,6 +19,8 @@ public class PlayerController : MonoBehaviour
 
     private float ignoreLookUntil;
     private const float LookInputIgnoreDuration = 0.1f;
+
+    public float Throttle => Mathf.Max(0f, movementInput.z);   // W = 1, nichts/S = 0
     
 
 
