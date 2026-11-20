@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class PartyCompass : MonoBehaviour
 {
     [Header("References")]
-    [SerializeField] private Transform spaceship;      // SpaceShip
+    [SerializeField] private Transform spaceship;      // SpaceShip/Player
     [SerializeField] private Transform party;          // PlatformMover/Dancers
     [SerializeField] private RectTransform arrow;
     [SerializeField] private Image ring;
@@ -33,14 +33,10 @@ public class PartyCompass : MonoBehaviour
         heightText.text = local.y > 10f ? "▲ oben" : local.y < -10f ? "▼ unten" : "";
 
         // 4. Farbe: je näher, desto pinker
-        float t = Mathf.InverseLerp(maxDistance, partyRadius, distance);
-        Color color = Color.Lerp(farColor, nearColor, t);
+        float nearAmount = Mathf.InverseLerp(maxDistance, partyRadius, distance);
+        Color color = Color.Lerp(farColor, nearColor, nearAmount);
         arrow.GetComponent<Image>().color = color;
         distanceText.color = color;
-
-        // 5. Ring pulsiert, wenn man da ist
-        float pulse = distance < partyRadius ? 1f + Mathf.Sin(Time.time * 8f) * 0.08f : 1f;
-        ring.rectTransform.localScale = Vector3.one * pulse;
         ring.color = color;
     }
 }

@@ -3,17 +3,24 @@ using UnityEngine;
 public class EngineThrusters : MonoBehaviour
 {
     [SerializeField] private PlayerController player;
-    [SerializeField] private ParticleSystem[] thrusters;   // beide Thruster reinziehen
-    [SerializeField] private Light[] engineLights;          // optional
-    [SerializeField] private float idleRate = 15f;          // leichtes Glühen im Leerlauf
-    [SerializeField] private float maxRate = 150f;
-    [SerializeField] private float response = 6f;          // wie schnell es hochfährt
+
+    // Partikel
+    [SerializeField] private ParticleSystem[] thrusters;   // Thruster Partikel assignen
     [SerializeField] private float idleSpeed = 3f;          // Partikel-Tempo im Leerlauf
     [SerializeField] private float maxSpeed = 30f;          // Vollgas: schnell = langer Schweif
+    [SerializeField] private float maxRate = 150f;
+    [SerializeField] private float response = 6f;          // wie schnell es hochfährt
+
+    // Lichter
+    [SerializeField] private Light[] engineLights;          // Thruster Lichter assignen
+    [SerializeField] private float idleRate = 15f;          // leichtes Glühen im Leerlauf
     [SerializeField] private float idleLightIntensity = 0.5f;
     [SerializeField] private float maxLightIntensity = 4f;
 
+
     private float currentThrottle;
+
+    
 
     private void Awake()
     {
