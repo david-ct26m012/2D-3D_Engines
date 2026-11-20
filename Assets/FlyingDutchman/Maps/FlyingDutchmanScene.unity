@@ -144283,6 +144283,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1390318428}
     m_Modifications:
+    - target: {fileID: 318934699810397451, guid: 5219ac88a738fac4fa301c5ec64317f1, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2227807820539497120, guid: 5219ac88a738fac4fa301c5ec64317f1, type: 3}
       propertyPath: spaceship
       value: 
@@ -144327,9 +144331,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3873424079114357456, guid: 5219ac88a738fac4fa301c5ec64317f1, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4358112072929338721, guid: 5219ac88a738fac4fa301c5ec64317f1, type: 3}
       propertyPath: m_Name
       value: PlatformMover
+      objectReference: {fileID: 0}
+    - target: {fileID: 4561270403546631381, guid: 5219ac88a738fac4fa301c5ec64317f1, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5763867579538421381, guid: 5219ac88a738fac4fa301c5ec64317f1, type: 3}
       propertyPath: lowestMaterial
@@ -144391,6 +144403,10 @@ PrefabInstance:
       propertyPath: 'platformRenderers.Array.data[11]'
       value: 
       objectReference: {fileID: 1919276766}
+    - target: {fileID: 8982054465989778637, guid: 5219ac88a738fac4fa301c5ec64317f1, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
