@@ -34,9 +34,10 @@ public class PartyCompass : MonoBehaviour
 
         // 4. Farbe: je näher, desto pinker
         float nearAmount = Mathf.InverseLerp(maxDistance, partyRadius, distance);
-        Color color = Color.Lerp(farColor, nearColor, nearAmount);
-        arrow.GetComponent<Image>().color = color;
-        distanceText.color = color;
-        ring.color = color;
+        
+        Color distanceColor = Color.Lerp(farColor, nearColor, nearAmount);
+        arrow.GetComponent<Image>().color = distanceColor;
+        distanceText.color = distanceColor;
+        ring.color = distanceColor;
     }
 }
