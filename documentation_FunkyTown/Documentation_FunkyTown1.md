@@ -22,7 +22,7 @@
 ## Was wurde umgesetzt?
 
 ### Distance – Eric Drößiger
-- World Space Canvas `PartyRadar` als Kind von `SpaceShip`, schwebt als kleines Hologramm über dem Cockpit. Inhalt: Radar-Ring (`radar_ring`), Richtungspfeil (`radar_arrow`), Distanz in Metern und ein Höhenhinweis.
+- World Space Canvas `PartyRadar` als Kind von `SpaceShip`, ist hinter dem Raumschiff platziert. Inhalt: Radar-Ring (`radar_ring`), Richtungspfeil (`radar_arrow`), Distanz in Metern und ein Höhenhinweis.
 - Script `PartyCompass.cs` auf `PartyRadar`:
   - `spaceship.InverseTransformPoint(party.position)` rechnet die Position der Party in den lokalen Raum des Schiffs um (`z` = vorne, `x` = rechts, `y` = oben).
   - `Mathf.Atan2(local.x, local.z)` ergibt den Winkel, um den der Pfeil in der Canvas-Ebene gedreht wird. Pfeil nach oben bedeutet „geradeaus“.
@@ -31,11 +31,10 @@
 - Alle Referenzen und Werte (Farben, `maxDistance`, `partyRadius`) sind über `[SerializeField]` im Inspector einstellbar.
 
 ### Atmosphere – Eric Drößiger
-- **Party:** Partikel-Prefabs aus `Particle Effects/Prefabs` als Kinder von `PlatformMover` an der Plattform platziert, damit sie mit der Plattform schweben und drehen. Simulation Space auf **Local** umgestellt, weil die Partikel bei *World* im Raum stehen bleiben, während die Plattform weiterzieht. Farben, Emission und Form an den Party-Look angepasst.
+- **Party:** Partikel-Prefabs aus `Particle Effects/Prefabs` als Kinder von `PlatformMover` an der Plattform platziert, damit sie mit der Plattform schweben und drehen. Simulation Space auf **Local** umgestellt.
 - **Triebwerke (Extra):** je ein Partikelsystem `Thruster` hinter den beiden Triebwerken des Raumschiffs.
   - Eigenes Material `M_Thruster` mit Shader *Universal Render Pipeline/Particles/Unlit*, Surface *Transparent*, Blending *Additive*. Damit funktioniert Color over Lifetime, und es gibt keine grauen Ränder.
   - Script `EngineThrusters.cs` auf `SpaceShip` liest den Schub über die neue Property `PlayerController.Throttle` (W-Taste) und regelt damit Emission, Partikelgeschwindigkeit (längerer Schweif bei Vollgas) und die Intensität der Engine Lights.
-  - `Mathf.Lerp(currentThrottle, player.Throttle, response * Time.deltaTime)` lässt den Wert weich nachziehen, damit die Flamme nicht flackert.
 
 ### Lights – David Scheucher
 - Alle Party-Lichter liegen unter `Lights`, einem Kind von `PlatformMover`, und bewegen sich dadurch mit der Plattform mit.
