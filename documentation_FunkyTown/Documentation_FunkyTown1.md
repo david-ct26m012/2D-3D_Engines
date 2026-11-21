@@ -38,7 +38,11 @@
   - `Mathf.Lerp(currentThrottle, player.Throttle, response * Time.deltaTime)` lässt den Wert weich nachziehen, damit die Flamme nicht flackert.
 
 ### Lights – David Scheucher
-- [Beschreibung durch David]
+- Alle Party-Lichter liegen unter `Lights`, einem Kind von `PlatformMover`, und bewegen sich dadurch mit der Plattform mit.
+- Animator auf `Lights` mit dem Clip `Lights_Party` (4 s, Loop).
+- Die vier weißen Spot Lights schwenken ±25° hin und her, teilweise gegenphasig.
+- Vier zusätzliche Disco-Spots wechseln ihre Farbe zwischen Pink, Lila und Cyan, jeweils mit unterschiedlicher Startfarbe.
+- Script `SpotlightFollow.cs`: Jeder Disco-Spot richtet sich in `LateUpdate()` per `LookAt` auf einen Tänzer aus und folgt ihm.
 
 ### Music – Eric Drößiger
 - Party-Musik aus `FlyingDutchman/Music` über eine `AudioSource` auf `PartyMusic`, einem Kind von `PlatformMover`. Die Musikquelle bewegt sich dadurch mit der Plattform.
@@ -48,10 +52,22 @@
 - Import der MP3: Load Type *Streaming*, Compression *Vorbis*.
 
 ### Magazine – David Scheucher
-- [Beschreibung durch David]
+- `MagazineCanvas` (Screen Space – Overlay) oben links: Magazin-Icon plus `BulletPanel` mit Horizontal Layout Group.
+- `Magazine.cs` erzeugt beim Start 10 Kugel-Icons (Striche). `TryShoot()` zieht eine Kugel ab, `Restore()` gibt eine zurück.
+- In `Cannon.Shoot()` verhindert `if (!Magazine.Instance.TryShoot()) return;` das Schießen bei leerem Magazin.
+- `ProjectileAmmo.cs` auf dem Projectile-Prefab ruft in `OnDestroy()` `Restore()` auf, damit kommt pro zerstörtem Projektil eine Kugel zurück.
+- Magazin-Icon: [Quelle eintragen]
 
 ### Performance – David Scheucher
-- [Beschreibung durch David: Static Batching, Occlusion Culling, Messwerte vorher/nachher]
+- **Static Batching:** Unbewegliche Umgebungsobjekte als Static markiert, bewegte Objekte (Raumschiff, Plattform, Tänzer, Lichter) ausgenommen.
+- **Occlusion Culling:** Gebacken und in der Visualization mit der Raumschiff-Kamera überprüft. Verdeckte Objekte und Objekte außerhalb des Sichtfelds werden ausgeblendet.
+- **Ergebnis:** Draw Calls sinken von 6370 auf 3733 (ca. 2600 weniger), Set Pass Calls von 171 auf 161. Occlusion Culling bringt im offenen Weltraum weniger, weil wenig verdeckt wird.
+
+Vorher
+![Stats vorher](Stats_Vorher.png)
+
+Nachher 
+![Stats nachher](Stats_Nacher.png)
 
 ### Build – Eric Drößiger
 - Product Name **FunkyTown**, eigenes App-Icon (`logo_icon.png`).
